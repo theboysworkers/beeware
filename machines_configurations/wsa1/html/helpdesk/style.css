@@ -1,0 +1,133 @@
+/* Font e reset base */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+/* Bottone moderno */
+.btn {
+    padding: 8px 16px;
+    background: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background: #155ab6;
+}
+
+/* Layout filtri */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    gap: 10px;
+}
+.filters input, .filters select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    flex: 1;
+    min-width: 150px;
+    transition: border 0.3s;
+}
+.filters input:focus, .filters select:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+/* Tabella moderna */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+th, td {
+    padding: 14px 20px;
+    text-align: left;
+}
+th {
+    background: #1a73e8;
+    color: #fff;
+    font-weight: 500;
+}
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+tr:hover {
+    background: #e6f0ff;
+    transition: all 0.3s ease;
+}
+
+/* Stato dei ticket */
+td:nth-child(5) {
+    font-weight: 600;
+}
+td:nth-child(5)[data-stato="Aperto"] {
+    color: #28a745;
+}
+td:nth-child(5)[data-stato="Chiuso"] {
+    color: #dc3545;
+}
+
+/* Form di aggiunta ticket */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+form input:focus, form textarea:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+form button {
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;   
+    margin-bottom: 20px;
+}
+
+#logo {
+    height: 50px;             
+}
+
+
+/* Responsività */
+@media (max-width: 768px) {
+    .filters { flex-direction: column; }
+    table, th, td { font-size: 14px; }
+}
