@@ -3,16 +3,13 @@ FROM theb0ys/base:latest
 # Install necessary packages
 RUN apt update && \
     apt install -y \
-        sudo \
         dsniff \
         hping3 \
         hydra \
         john \
         masscan \
         nmap \
-        nikto \
         whatweb \
-        wpscan \
         unzip && \
         apt clean && \
     rm -rf /var/lib/apt/lists/*

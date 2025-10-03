@@ -32,11 +32,15 @@ docker pull theb0ys/nat64:latest
 echo "🔹 Pulling theb0ys/nginx:latest"
 docker pull theb0ys/nginx:latest
 
+# Pull postfix-dovecot image
+echo "🔹 Pulling theb0ys/postfix-dovecot:latest"
+docker pull theb0ys/postfix-dovecot:latest
+
 # Pull samba image
 echo "🔹 Pulling theb0ys/samba:latest"
 docker pull theb0ys/samba:latest
 
-# Pull red_hornet image
+# Pull red-hornet image
 echo "🔹 Pulling theb0ys/red-hornet:latest"
 docker pull theb0ys/red-hornet:latest
 
@@ -47,6 +51,5 @@ docker pull theb0ys/ubuntu-desktop:latest
 # Pull ubuntu-desktop image
 echo "🔹 Pulling theb0ys/ubuntu-desktop:latest"
 docker pull theb0ys/ubuntu-desktop:latest
-
 
 echo "✅ All pulls completed!"

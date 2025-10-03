@@ -20,12 +20,16 @@ docker build -t theb0ys/dns64:latest dns64
 echo "🔹 Building theb0ys/oldap:latest"
 docker build -t theb0ys/oldap:latest oldap
 
+# Build postfix-dovecot image
+echo "🔹 Building theb0ys/postfix-dovecot:latest"
+docker build -t theb0ys/postfix-dovecot:latest postfix-dovecot
+
 # Build mariadb image
 echo "🔹 Building theb0ys/mariadb:latest"
 docker build -t theb0ys/mariadb:latest mariadb
 
 # Build nat64 image
-echo "🔹 Building theb0ys/nginx:latest"
+echo "🔹 Building theb0ys/nat64:latest"
 docker build -t theb0ys/nat64:latest nat64
 
 # Build nginx image
@@ -36,12 +40,17 @@ docker build -t theb0ys/nginx:latest nginx
 echo "🔹 Building theb0ys/samba:latest"
 docker build -t theb0ys/samba:latest samba
 
-# Build red_hornet image
-echo "🔹 Building red_hornet:latest"
-docker build -t theb0ys/red-hornet red-hornet
+# Build red-hornet image
+echo "🔹 Building red-hornet:latest"
+docker build -t theb0ys/red-hornet:latest red-hornet
+
+# Build rsyslog image
+echo "🔹 Building theb0ys/rsyslog:latest"
+docker build -t theb0ys/rsyslog:latest rsyslog
+
 
 # Build ubuntu-desktop image
 echo "🔹 Building ubuntu-desktop:latest"
-docker build -t theb0ys/ubuntu-desktop ubuntu-desktop
+docker build -t theb0ys/ubuntu-desktop:latest ubuntu-desktop
 
 echo "✅ All builds completed!"
