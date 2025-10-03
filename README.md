@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="src/logo.png" alt="Pi-hole website" width="300" height="300">
+  <img src="https://theboysworkers.github.io/beeware/logo.svg" alt="Logo" width="300" height="300">
   <br>
   <strong>Capture and analyze malicious traffic effectively...</strong>
 </p>
