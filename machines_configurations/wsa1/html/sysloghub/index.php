@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+// Se l'utente non è loggato, reindirizza al login
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 
 <?php include 'config.php'; ?>
 
@@ -7,7 +16,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $site_name; ?></title>
+    <title>SyslogHub | Dashboard</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
