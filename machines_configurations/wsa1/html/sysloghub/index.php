@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
-<?php include 'config.php'; ?>
+<?php include 'conf.php'; ?>
 
 <html lang="en">
   <head>

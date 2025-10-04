@@ -62,7 +62,7 @@ INSERT INTO posizioni (nome_posizione, descrizione) VALUES
 -- 4. Inserimento dati dipendenti
 INSERT INTO dipendenti (nome, cognome, data_assunzione, id_posizione, stipendio) VALUES
 ('Michela', 'Sicurezza', '2023-01-15', 1, 3500.00),
-('Giorgia', 'Botteri', '2023-02-10', 2, 2400.00),
+('Nicholas', 'Caciotta', '2023-02-10', 2, 2400.00),
 ('Fabio', 'Zarfagna', '2024-03-05', 6, 2000.00),
 ('Lorenzo', 'Ricci', '2023-01-20', 8, 2200.00),
 ('Elisabetta', 'Dinosauro', '2024-04-01', 5, 2700.00),

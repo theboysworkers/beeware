@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="https://theboysworkers.github.io/beeware/logo.svg" alt="Logo" width="300" height="300">
+ <a href="https://theboysworkers.github.io/beeware">
+    <img src="https://theboysworkers.github.io/beeware/logo.svg" alt="Logo" width="300" height="300">
+ </a>
+  <br>
   <br>
   <strong>Capture and analyze malicious traffic effectively...</strong>
 </p>
@@ -64,7 +67,7 @@ IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is th
   - **LAN D**
   - **LAN O**
 
-![Network Architecture](src/network.drawio.png)
+![Network Architecture](https://theboysworkers.github.io/beeware/network.drawio.png)
 
 ---
 

@@ -14,7 +14,7 @@ import lan_B
 # import lan_S
 # import lan_D
 # import lan_O
-# import pentesting
+import pentesting
 
 Kathara.get_instance().deploy_lab(lab)
 
