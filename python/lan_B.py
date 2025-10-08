@@ -26,7 +26,7 @@ lab.get_machine("mdb").copy_directory_from_path("machines_configurations/mdb/dat
 lab.get_machine("mdb").copy_directory_from_path("machines_configurations/syslog-client", "/etc")
 lab.create_startup_file_from_path(mdb, "machines_startup_script/lan_b/mdb.sh")
 
-smb = lab.new_machine("smb", image="theb0ys/samba3.0.20")
+smb = lab.new_machine("smb", image="theb0ys/samba")
 lab.connect_machine_to_link("smb", "M1", machine_iface_number = 0, mac_address="00:00:00:00:01:06")
 lab.connect_machine_to_link("smb", "B3", machine_iface_number = 1)
 lab.get_machine("smb").copy_directory_from_path("machines_configurations/smb/srv", "/srv")

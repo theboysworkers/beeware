@@ -36,10 +36,6 @@ docker build -t theb0ys/nat64:latest nat64
 echo "🔹 Building theb0ys/nginx:latest"
 docker build -t theb0ys/nginx:latest nginx
 
-# Build samba image
-echo "🔹 Building theb0ys/samba:latest"
-docker build -t theb0ys/samba:latest samba
-
 # Build red-hornet image
 echo "🔹 Building red-hornet:latest"
 docker build -t theb0ys/red-hornet:latest red-hornet
@@ -48,6 +44,13 @@ docker build -t theb0ys/red-hornet:latest red-hornet
 echo "🔹 Building theb0ys/rsyslog:latest"
 docker build -t theb0ys/rsyslog:latest rsyslog
 
+# Build samba image
+echo "🔹 Building theb0ys/samba:latest"
+docker build -t theb0ys/samba:latest samba
+
+# Build suricata image
+echo "🔹 Building theb0ys/suricata:latest"
+docker build -t theb0ys/suricata:latest suricata
 
 # Build ubuntu-desktop image
 echo "🔹 Building ubuntu-desktop:latest"

@@ -1,0 +1,42 @@
+# ==== regole Suricata (IPv4 + IPv6 ready) ====
+
+# Alta severità → SQLi (HTTP) - funziona su IPv4 e IPv6 (HTTP over TCP)
+alert tcp any any -> any 80 (msg:"Tentativo SQL Injection"; content:"union select"; nocase; http_uri; sid:1000002; rev:1; classtype:web-application-attack; priority:3;)
+
+# Media severità → SSH (porta 22) - TCP (IPv4 & IPv6)
+alert tcp any any -> any 22 (msg:"Connessione SSH"; sid:1000004; rev:1; classtype:attempted-admin; priority:2;)
+
+# Bassa severità → Ping sweep IPv4 (ICMP Echo Request)
+alert icmp any any -> any any (msg:"Ping sweep ICMPv4"; itype:8; threshold:type threshold, track by_src, count 10, seconds 60; sid:1000003; rev:1; classtype:attempted-recon; priority:1;)
+
+# Bassa severità → Ping sweep IPv6 (ICMPv6 Echo Request)
+#alert icmp6 any any -> any any (msg:"Ping sweep ICMPv6"; itype:128; threshold:type threshold, track by_src, count 10, seconds 60; sid:1000100; rev:1; classtype:attempted-recon; priority:1;)
+
+# DNS suspicious queries (uses PCRE on query name) - UDP 53 (IPv4 & IPv6)
+alert udp any any -> any 53 (msg:"DNS Query Suspicious"; pcre:"/examplebad\.com/i"; sid:2000001; rev:1; classtype:attempted-recon; priority:1;)
+alert udp any any -> any 53 (msg:"DNS Poisoning Detected"; pcre:"/malicious\.com/i"; sid:2000003; rev:1; classtype:attempted-recon; priority:3;)
+
+# HTTP SQL Injection su URI (duplica/variante) - TCP 80
+alert tcp any any -> any 80 (msg:"HTTP SQL Injection Attempt"; content:"union select"; nocase; http_uri; sid:4000002; rev:1; classtype:web-application-attack; priority:2;)
+
+# HTTP - Download file .exe via URI
+alert tcp any any -> any 80 (msg:"HTTP Malware Download"; content:".exe"; nocase; http_uri; sid:4000003; rev:1; classtype:trojan-activity; priority:3;)
+
+# HTTP - User-Agent sospetto
+alert tcp any any -> any 80 (msg:"HTTP Suspicious User-Agent"; content:"curl"; nocase; http_header; sid:4000001; rev:1; classtype:web-application-activity; priority:1;)
+
+# SMTP - Header sospetto (X-Spam)
+alert tcp any any -> any 25 (msg:"SMTP Suspicious Header"; content:"X-Spam"; nocase; sid:3000001; rev:2; classtype:attempted-recon; priority:1;)
+
+# SMTP - Allegato malevolo (nome file)
+alert tcp any any -> any 25 (msg:"Malicious Email Attachment"; content:"malware.exe"; nocase; sid:3000003; rev:2; classtype:trojan-activity; priority:3;)
+
+# IMAP - Tentativo login non autorizzato
+alert tcp any any -> any 143 (msg:"IMAP Unauthorized Login Attempt"; content:"LOGIN"; nocase; sid:3000002; rev:2; classtype:attempted-admin; priority:2;)
+
+# (opzionale) Regola generica per ICMPv6 reply se vuoi anche monitorare reply
+#alert icmp6 any any -> any any (msg:"ICMPv6 Echo Reply detected"; itype:129; sid:1000101; rev:1; classtype:protocol-command-decode; priority:1;)
+
+
+# LOGGA TUTTO
+alert icmp any any -> any any (msg:"ICMPv6 test"; itype:128; sid:9000001; rev:1;)

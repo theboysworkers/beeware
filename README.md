@@ -84,6 +84,7 @@ The following services are deployed within the simulated infrastructure to repre
 - **wsa1**: Apache web server hosting internal web content.  
 - **mdb**: MariaDB relational database for storing application and system data.  
 - **smb**: Samba server offering Windows-compatible file and printer sharing.
+- **mxs**: A mail server with postfix and dovecot services
 
 ### 3.3 LAN C
 - **wsa2**: Apache web server serving public-facing websites and web applications.  
