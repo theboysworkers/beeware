@@ -2,194 +2,176 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Beeware</title>
-    <meta name="author" content="p1c1s, sicmic">
-    <meta name="description"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Beeware</title>
+  <meta name="author" content="Michela Sicuranza, Lorenzo Ricciardi">
+  <meta name="title" content="Beeware Honeypot — Cyber Intelligence Platform">
+  <meta name="description"
         content="Beeware - a modern honeypot system designed to attract and analyze cyber attackers. Developed by p1c1s and sicmic, providing valuable intelligence for security strategies.">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
 
-        body {
-            font-family: 'Roboto Mono', monospace;
-            background: radial-gradient(circle at center, #292929, #1a1a1a, #0d0d0d);
-            color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 2rem 1rem;
-        }
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: radial-gradient(circle at center, #292929, #1a1a1a, #0d0d0d);
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
 
-        img.logo {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            border: 5px solid rgb(0, 0, 0);
-            border-radius: 50%;
-        }
+    img.logo {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 1.5rem;
+      border: 5px solid rgb(0, 0, 0);
+      border-radius: 50%;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            margin: 0.5rem 0;
-            color: #ffcc00;
-            text-shadow: 0 0 15px #ffcc00;
-        }
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      padding: 1rem;
+      background: rgba(26, 26, 26, 0.7);
+      border: 1px solid #333;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      margin-bottom: 1.5rem;
+    }
 
-        .subtitle {
-            font-size: 1rem;
-            color: #e5e5e5;
-            opacity: 0.8;
-            margin-bottom: 1rem;
-        }
+    .cta-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
 
-        p {
-            max-width: 100%;
-            width: 600px;
-            line-height: 1.6;
-            font-size: 1rem;
-            padding: 1rem;
-            background: rgba(26, 26, 26, 0.7);
-            border: 1px solid #333;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            margin-bottom: 1.5rem;
-        }
+    .cta {
+      padding: 0.75rem 1.5rem;
+      background-color: #501DAF;
+      border: 1px solid #000240;
+      color: #0d0d0d;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
 
-        .cta-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            justify-content: center;
-        }
+    .cta:hover {
+      background-color: #C06EFF;
+      color: #0d0d0d;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #D0B0FF;
+    }
 
-        .cta {
-            padding: 0.75rem 1.5rem;
-            background-color: #501DAF;
-            border: 1px solid #000240;
-            color: #0d0d0d;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
 
-        .cta:hover {
-            background-color: #C06EFF;
-            color: #0d0d0d;
-            transform: scale(1.05);
-            box-shadow: 0 0 10px #D0B0FF;
-        }
+    .badge {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      border-radius: 50px;
+      background-color: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
 
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
+    .badge:hover {
+      background-color: #ffcc00;
+      color: #0d0d0d;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ffcc00;
+    }
 
-        .badge {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 0.75rem;
-            border-radius: 50px;
-            background-color: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
+    .badge:hover .name {
+      color: #000;
+    }
 
-        .badge:hover {
-            background-color: #ffcc00;
-            color: #0d0d0d;
-            transform: scale(1.05);
-            box-shadow: 0 0 10px #ffcc00;
+    .badge img {
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      margin-right: 6px;
+      border: 1px solid rgb(0, 0, 0);
+    }
 
-            .name {
-                color: #000000;
-            }
-        }
+    .badge .name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #ffffff;
+    }
 
-        .badge img {
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
-            margin-right: 6px;
-            border: 1px solid rgb(0, 0, 0);
-        }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+      opacity: 0.7;
+    }
 
-        .badge .name {
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            color: #ffffff;
-        }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-            p {
-                font-size: 0.95rem;
-                padding: 0.75rem;
-            }
+    /* Responsive */
+    @media (max-width: 768px) {
+      p { font-size: 0.95rem; padding: 0.75rem; }
+      .cta { padding: 0.5rem 1rem; }
+      .badge img { width: 24px; height: 24px; }
+    }
 
-            .cta {
-                padding: 0.5rem 1rem;
-            }
-
-            .badge img {
-                width: 24px;
-                height: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.7rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            .badge {
-                padding: 0.4rem 0.6rem;
-            }
-        }
-    </style>
+    @media (max-width: 480px) {
+      p { font-size: 0.9rem; }
+      .badge { padding: 0.4rem 0.6rem; }
+    }
+  </style>
 </head>
 
 <body>
-    <img src="logo.svg" alt="Beeware logo" class="logo">
-    <p>This document outlines the implementation of a honeypot system. A honeypot is a computing resource intentionally
-        designed to attract and deceive cyber attackers by simulating system vulnerabilities or exposing seemingly
-        sensitive data. Its main objective is to monitor and analyze attack techniques, gathering valuable intelligence
-        to improve overall security strategies. Honeypots are powerful tools for studying malicious behavior and
-        developing more effective defense mechanisms.</p>
-    <div class="cta-container">
-        <a class="cta" href="https://github.com/theboysworkes/beeware">GitHub Repo</a>
+  <img src="logo.svg" alt="Beeware logo" class="logo">
+  <div class="badge-container">
+    <div class="badge">
+      <img src="https://github.com/p1c1s.png" alt="Foto di p1c1s">
+      <a class="name" href="https://github.com/p1c1s" target="_blank">p1c1s</a>
     </div>
-    <div class="badge-container">
-        <div class="badge">
-            <img src="https://github.com/p1c1s.png" alt="Foto">
-            <a class="name" href="https://github.com/p1c1s">p1c1s</a>
-        </div>
-        <div class="badge">
-            <img src="https://github.com/sicmic.png" alt="Foto">
-            <a class="name" href="https://github.com/sicmic">sicmic</a>
-        </div>
+    <div class="badge">
+      <img src="https://github.com/sicmic.png" alt="Foto di sicmic">
+      <a class="name" href="https://github.com/sicmic" target="_blank">sicmic</a>
     </div>
+  </div>
+
+  <p>
+    Beeware is a modern honeypot system designed to attract and analyze cyber attackers.
+    Developed by <strong>p1c1s</strong> and <strong>sicmic</strong>, providing valuable intelligence for advanced security strategies.
+  </p>
+
+  <div class="cta-container">
+    <a class="cta" href="https://github.com/theboysworkers/beeware" target="_blank">GitHub Repo</a>
+  </div>
+
+  <footer>
+    Developed with ❤️ using the <a href="https://www.kathara.org" target="_blank">Kathará Framework</a>
+  </footer>
 </body>
 
 </html>
