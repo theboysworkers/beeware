@@ -23,6 +23,7 @@ techsolve   IN AAAA   2a04:0:0:2::2
 agency      IN AAAA   2a04:0:0:2::3
 myrecipe    IN AAAA   2a04:0:0:2::3
 blackhoney  IN AAAA   2a04:0:0:2::3
+puffcats    IN AAAA   2a04:0:0:2::3
 
 ; CHECK THIS CHECK THIS CHECK THIS
 ; ovpn        IN AAAA   2a04:0:0:2::4

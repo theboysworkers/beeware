@@ -1,0 +1,245 @@
+{
+    "kittens": [
+        {
+            "id": 1,
+            "name": "Milo",
+            "tags": [
+                "curioso",
+                "vivace"
+            ],
+            "img": "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg",
+            "desc": "Milo è un gattino vivace e curioso, sempre pronto a esplorare ogni angolo della casa. Con il suo pelo morbido e gli occhi attenti, è impossibile non innamorarsi del suo spirito avventuroso."
+        },
+        {
+            "id": 2,
+            "name": "Luna",
+            "tags": [
+                "elegante",
+                "misteriosa"
+            ],
+            "img": "https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg",
+            "desc": "Luna è una gatta elegante e misteriosa, con un portamento regale. Ama osservare il mondo dall'alto e si muove con una grazia che incanta chiunque la guardi."
+        },
+        {
+            "id": 3,
+            "name": "Zampa",
+            "tags": [
+                "giocosa",
+                "affettuosa"
+            ],
+            "img": "https://images.pexels.com/photos/979247/pexels-photo-979247.jpeg",
+            "desc": "Zampa è una gattina giocosa e affettuosa, sempre pronta a correre dietro a una pallina o a saltare su un filo di lana. Le sue coccole sono il rimedio perfetto per una giornata stressante."
+        },
+        {
+            "id": 4,
+            "name": "Nocciola",
+            "tags": [
+                "dolce",
+                "coccolona"
+            ],
+            "img": "https://images.pexels.com/photos/14440674/pexels-photo-14440674.jpeg",
+            "desc": "Nocciola è una gattina dolce e coccolona, che adora stare vicino alle persone. Il suo pelo morbido e il suo carattere affettuoso la rendono la compagna ideale per chi cerca un po' di tenerezza."
+        },
+        {
+            "id": 5,
+            "name": "Muffin",
+            "tags": [
+                "pigro",
+                "adorabile"
+            ],
+            "img": "https://images.pexels.com/photos/208984/pexels-photo-208984.jpeg",
+            "desc": "Muffin è un gattone pigro e adorabile, che passa la maggior parte del suo tempo a dormire o a rilassarsi. Nonostante la sua tranquillità, è sempre pronto a ricevere una carezza."
+        },
+        {
+            "id": 6,
+            "name": "Stella",
+            "tags": [
+                "vivace",
+                "curiosa"
+            ],
+            "img": "https://images.pexels.com/photos/755834/pexels-photo-755834.jpeg",
+            "desc": "Stella è una gattina vivace e curiosa, sempre pronta a esplorare nuovi angoli della casa. Con il suo spirito avventuroso, non si ferma mai e trova sempre qualcosa di interessante da fare."
+        },
+        {
+            "id": 7,
+            "name": "Tigro",
+            "tags": [
+                "avventuroso",
+                "coraggioso"
+            ],
+            "img": "https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg",
+            "desc": "Tigro è un piccolo esploratore con lo spirito da tigre. Non ha paura di affrontare nuove sfide e si lancia sempre in nuove avventure con coraggio e determinazione."
+        },
+        {
+            "id": 8,
+            "name": "Neve",
+            "tags": [
+                "bianco",
+                "puro",
+                "dolce"
+            ],
+            "img": "https://images.pexels.com/photos/1643457/pexels-photo-1643457.jpeg",
+            "desc": "Neve è un gattino candido come la neve, tenero e affettuoso. Ama le coccole e si addormenta facilmente tra le braccia di chi lo ama."
+        },
+        {
+            "id": 9,
+            "name": "Cip",
+            "tags": [
+                "vecchietto",
+                "morbido"
+            ],
+            "img": "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg",
+            "desc": "Cip è un gattino anziano, dolce e molto pacato. Ama sdraiarsi al sole pomeridiano e passare ore a sonnecchiare tra le coperte più morbide. La sua presenza calma tutto l’ambiente."
+        },
+        {
+            "id": 10,
+            "name": "Puffo",
+            "tags": [
+                "soffice",
+                "sonnellino"
+            ],
+            "img": "https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg",
+            "desc": "Puffo è un gattino vanitoso e adorabile, ama stiracchiarsi al sole e fare lunghi sonnellini sul divano. Fa le fusa così forte che sembra una piccola macchina, e il suo pelo soffice invita sempre a coccolarlo."
+        },
+        {
+            "id": 11,
+            "name": "Argo",
+            "tags": [
+                "curioso",
+                "giocherellone"
+            ],
+            "img": "https://images.pexels.com/photos/1314550/pexels-photo-1314550.jpeg",
+            "desc": "Argo ama arrampicarsi ovunque e osservare ogni movimento intorno a lui. Ha un’energia contagiosa che riempie la casa di allegria e rende ogni giornata speciale."
+        },
+        {
+            "id": 12,
+            "name": "Bianca",
+            "tags": [
+                "pura",
+                "delicata"
+            ],
+            "img": "https://images.pexels.com/photos/171227/pexels-photo-171227.jpeg",
+            "desc": "Bianca è delicata e dolce, adora i giochi tranquilli e osservare la natura dalla finestra. Il suo pelo candido e soffice è perfetto per lunghe sessioni di coccole."
+        },
+        {
+            "id": 13,
+            "name": "Cleo",
+            "tags": [
+                "intelligente",
+                "misteriosa"
+            ],
+            "img": "https://images.pexels.com/photos/1056252/pexels-photo-1056252.jpeg",
+            "desc": "Cleo sembra capire tutto ciò che accade intorno a lei. I suoi occhi profondi e il suo comportamento elegante la rendono una gatta davvero speciale e affascinante."
+        },
+        {
+            "id": 14,
+            "name": "Daisy",
+            "tags": [
+                "allegra",
+                "affettuosa"
+            ],
+            "img": "https://images.pexels.com/photos/1770918/pexels-photo-1770918.jpeg",
+            "desc": "Daisy è sempre allegra e pronta a giocare. Ama le coccole, rincorrere palline e stare vicino alle persone, regalando sempre momenti di tenerezza e gioia."
+        },
+        {
+            "id": 15,
+            "name": "Leo",
+            "tags": [
+                "coraggioso",
+                "avventuroso"
+            ],
+            "img": "https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg",
+            "desc": "Leo è un gattino coraggioso che adora esplorare il mondo circostante. Non si ferma davanti a nulla e il suo spirito avventuroso lo porta a vivere sempre nuove scoperte."
+        },
+        {
+            "id": 16,
+            "name": "Maya",
+            "tags": [
+                "dolce",
+                "pacifica"
+            ],
+            "img": "https://images.pexels.com/photos/208773/pexels-photo-208773.jpeg",
+            "desc": "Maya è una gatta pacifica e dolce, ama i momenti di tranquillità e coccole. Si adatta facilmente e porta calma e serenità a chi le sta vicino."
+        },
+        {
+            "id": 17,
+            "name": "Oscar",
+            "tags": [
+                "giocherellone",
+                "curioso"
+            ],
+            "img": "https://images.pexels.com/photos/20787/pexels-photo.jpg",
+            "desc": "Oscar è pieno di energia, ama saltare, inseguire luci e giocare con qualsiasi oggetto che trovi in casa. La sua curiosità non ha limiti e regala sempre spettacoli divertenti."
+        },
+        {
+            "id": 18,
+            "name": "Fluffy",
+            "tags": [
+                "soffice",
+                "affettuoso"
+            ],
+            "img": "https://images.pexels.com/photos/248280/pexels-photo-248280.jpeg",
+            "desc": "Fluffy è estremamente soffice e adorabile. Ama le coccole e stare vicino alle persone, facendo sentire chiunque speciale e amato."
+        },
+        {
+            "id": 19,
+            "name": "Saphira",
+            "tags": [
+                "misteriosa",
+                "elegante"
+            ],
+            "img": "https://images.pexels.com/photos/177809/pexels-photo-177809.jpeg",
+            "desc": "Saphira ha un portamento elegante e uno sguardo misterioso. Ama muoversi silenziosa e osservare tutto intorno a lei con curiosità e grazia."
+        },
+        {
+            "id": 20,
+            "name": "Ginger",
+            "tags": [
+                "vivace",
+                "intelligente"
+            ],
+            "img": "https://images.pexels.com/photos/1765832/pexels-photo-1765832.jpeg",
+            "desc": "Ginger è vivace e intelligente, sempre pronta a scoprire nuovi giochi e interagire con chi le sta vicino. La sua energia e il suo fascino conquistano tutti."
+        },
+        {
+            "id": 21,
+            "name": "Orazio",
+            "tags": [
+                "vivace",
+                "intelligente"
+            ],
+            "img": "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg",
+            "desc": "Orazio è vivace e intelligente, sempre pronta a scoprire nuovi giochi e interagire con chi le sta vicino. La sua energia e il suo fascino conquistano tutti."
+        },
+        {
+            "id": 22,
+            "name": "Willow",
+            "tags": [
+                "curiosa",
+                "avventurosa"
+            ],
+            "img": "https://images.pexels.com/photos/1317844/pexels-photo-1317844.jpeg",
+            "desc": "Willow è una gattina curiosa e avventurosa, ama arrampicarsi sugli scaffali e scoprire nuovi angoli della casa. Il suo spirito esploratore porta allegria a chi la osserva."
+        },
+        {
+            "id": 23,
+            "name": "Shadow",
+            "tags": [
+                "misterioso",
+                "silenzioso"
+            ],
+            "img": "https://images.pexels.com/photos/1521304/pexels-photo-1521304.jpeg",
+            "desc": "Shadow è un gatto misterioso e silenzioso, sempre pronto a muoversi senza fare rumore. Ama nascondersi negli angoli e osservare tutto con i suoi occhi penetranti."
+        },
+        {
+            "id": 24,
+            "name": "Pumpkin",
+            "tags": [
+                "giocoso",
+                "affettuoso"
+            ],
+            "img": "https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg",
+            "desc": "Pumpkin è un gattino giocherellone e affettuoso, ama rincorrere palline e fare le fusa accanto a chi gli vuole bene. Il suo pelo arancione e morbido lo rende irresistibile."
+        }
+    ]
+}

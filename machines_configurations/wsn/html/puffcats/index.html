@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🐾 Gatti Pucciosi</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>🐾 Gatti Pucciosi</h1>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Cerca un gatto..." />
+            <button id="randomBtn">🎲 Gatto a caso</button>
+        </div>
+    </header>
+    <main id="gallery"></main>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <img id="modalImg" src="" alt="Gatto" />
+            <div class="info">
+                <h2 id="modalName"></h2>
+                <p id="modalDesc"></p>
+                <div>
+                    <span id="modalTags1" class="modal-tags"></span>
+                    <span id="modalTags2" class="modal-tags"></span>
+                </div>
+                <button id="closeBtn">Chiudi ✖</button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>

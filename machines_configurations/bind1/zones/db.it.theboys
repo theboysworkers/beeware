@@ -27,7 +27,6 @@ smb         IN AAAA   2a04:0:0:1::4
 mxs         IN MX 10  mxs.theboys.it.
 mxs.theboys.it. IN AAAA 2a04:0:0:1::5
 
-
 ; vhost di wsa1
 helpdesk    IN AAAA   2a04:0:0:1::2
 manager     IN AAAA   2a04:0:0:1::2
@@ -39,6 +38,9 @@ sysloghub   IN AAAA   2a04:0:0:1::2
 ; ========================
 
 wsa2        IN AAAA   2a04:0:0:2::2
+wsn         IN AAAA   2a04:0:0:2::3
+ovpn        IN AAAA   2a04:0:0:2::4
+bind2       IN AAAA   2a04:0:0:2::5
 
 ; vhost di wsa2
 ecopulse    IN AAAA   2a04:0:0:2::2
@@ -46,13 +48,8 @@ invest      IN AAAA   2a04:0:0:2::2
 quix        IN AAAA   2a04:0:0:2::2
 techsolve   IN AAAA   2a04:0:0:2::2
 
-wsn         IN AAAA   2a04:0:0:2::3
-ovpn        IN AAAA   2a04:0:0:2::4
-bind2       IN AAAA   2a04:0:0:2::5
-
 ; vhost di wsn
 agency      IN AAAA   2a04:0:0:2::3
-myrecipe    IN AAAA   2a04:0:0:2::3
 blackhoney  IN AAAA   2a04:0:0:2::3
-
-
+myrecipe    IN AAAA   2a04:0:0:2::3
+puffcats    IN AAAA   2a04:0:0:2::3

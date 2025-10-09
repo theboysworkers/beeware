@@ -58,3 +58,20 @@ server {
 	}
 }
 
+
+# This block defines a VirtualHost for the domain puffcats.theboys.it
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name puffcats.theboys.it;
+
+	root /var/www/html/puffcats;
+	index index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+
+
