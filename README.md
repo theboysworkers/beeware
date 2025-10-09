@@ -118,3 +118,4 @@ The following services are deployed within the simulated infrastructure to repre
 > To run and simulate the entire honeypot infrastructure described in this document, it is **necessary to have Docker and Kathará installed** on your system.  
 > * Docker enables containerization and management of all services in an isolated and scalable environment. You can download Docker here: [https://www.docker.com/get-started](https://www.docker.com/get-started).  
 > * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
+
