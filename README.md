@@ -111,11 +111,15 @@ The following services are deployed within the simulated infrastructure to repre
 
 ## 5. How to Use It
 
-1. Run `./pull-images.sh` to download and install the necessary Docker images.  
-2. Run `./launcher.sh` to start the lab environment. This script creates all the containers.
+1. Run `./pull-images.sh` to download and install the necessary Docker images.
+2. Run `./launcher.sh` to start the lab environment. This script creates all the containers; depending on your system, the complete deployment may take up to one minute. Monitor the script output for progress and any potential errors.
 
 > **Note:**  
 > To run and simulate the entire honeypot infrastructure described in this document, it is **necessary to have Docker and Kathará installed** on your system.  
 > * Docker enables containerization and management of all services in an isolated and scalable environment. You can download Docker here: [https://www.docker.com/get-started](https://www.docker.com/get-started).  
+<<<<<<< HEAD
 > * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
 
+=======
+> * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
+>>>>>>> unstable
