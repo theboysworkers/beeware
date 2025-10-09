@@ -2,11 +2,9 @@
  <a href="https://theboysworkers.github.io/beeware">
     <img src="https://theboysworkers.github.io/beeware/logo.svg" alt="Logo" width="300" height="300">
  </a>
-  <br>
-  <br>
+  <br><br>
   <strong>Capture and analyze malicious traffic effectively...</strong>
 </p>
-
 
 # Honeypot Deployment Documentation
 
@@ -19,7 +17,11 @@
    - [3.1 LAN A](#31-lan-a)
    - [3.2 LAN B](#32-lan-b)
    - [3.3 LAN C](#33-lan-c)
-4. [How to use it](#)
+4. [Namespaces](#4-namespaces)
+   - [4.1 Internal Namespace](#41-internal-namespace)
+   - [4.2 External Namespace](#42-external-namespace)
+5. [How to Use It](#5-how-to-use-it)
+
 ---
 
 ## 1. Introduction
@@ -33,7 +35,6 @@ Honeypots are powerful tools for **studying malicious behavior** and developing 
 To simulate a realistic corporate environment, a **network architecture** was designed for a fictional company called **"The Boys"** — a young, dynamic IT firm specializing in tailor-made digital solutions for both businesses and individuals.
 
 To ensure **greater scalability** and **zero deployment costs**, the entire infrastructure is **fully simulated** using the advanced emulation tool [Kathará](https://www.kathara.org).
-
 
 ---
 
@@ -53,7 +54,7 @@ IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is th
 
 - The **first macro subnet** is dedicated to servers and hosts critical services such as DNS, web servers, and more.  
   This subnet is further divided to allow for future scalability, yielding **16 subnets** in total.  
-  The applied subnetting is: `2a04:0:0:0::/60` → `2a04:0:0:f::/60`  
+  Applied subnetting: `2a04:0:0:0::/60` → `2a04:0:0:f::/60`  
   Currently, only three networks have been implemented:
   - **LAN A**
   - **LAN B**
@@ -61,8 +62,8 @@ IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is th
 
 - The **second macro subnet** is reserved for employee workstations.  
   It is partitioned into a large number of subnets (**up to 240 LANs**) to support potential large-scale deployments.  
-  The applied subnetting is: `2a04:0:0:10::/60` → `2a04:0:0:ff::/60`  
-  As of now, the following networks are active:
+  Applied subnetting: `2a04:0:0:10::/60` → `2a04:0:0:ff::/60`  
+  Currently active networks:
   - **LAN S**
   - **LAN D**
   - **LAN O**
@@ -76,32 +77,44 @@ IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is th
 The following services are deployed within the simulated infrastructure to represent typical enterprise systems. They are distributed across three internal networks (LANs):
 
 ### 3.1 LAN A
-- **bind1**: DNS server for internal name resolution and service discovery.  
+- **bind1**: Internal DNS server for local hostname resolution and service discovery.  
 - **rsyslog**: Centralized logging system for auditing and monitoring.  
 - **oldap**: Directory service providing centralized authentication and user management.
 
 ### 3.2 LAN B
 - **wsa1**: Apache web server hosting internal web content.  
 - **mdb**: MariaDB relational database for storing application and system data.  
-- **smb**: Samba server offering Windows-compatible file and printer sharing.
-- **mxs**: A mail server with postfix and dovecot services
+- **smb**: Samba server offering Windows-compatible file and printer sharing.  
+- **mxs**: Mail server with Postfix and Dovecot services.
 
 ### 3.3 LAN C
 - **wsa2**: Apache web server serving public-facing websites and web applications.  
 - **wsn**: Nginx server acting as a reverse proxy or lightweight web server.  
-- **bind2**: Secondary DNS server for redundancy and additional resolution support.  
+- **bind2**: External DNS server for Internet resolution.  
 - **ovpn**: OpenVPN server providing secure remote access to the internal network.
 
+---
 
-### 4. How to use it
+## 4. Namespaces
 
-1. Run `./pull-images.sh` to download and install the necessary Docker images.
+### 4.1 Internal Namespace
+- **BIND1:** Internal DNS for resolving local network hostnames.  
 
-2. Run `./launcher.sh` to start the lab environment. Thi script create all the containers
+![Internal Namespace](https://theboysworkers.github.io/beeware/bind1.namespace.drawio.png)
+
+### 4.2 External Namespace
+- **BIND2:** External DNS serving Internet queries.
+
+![External Namespace](https://theboysworkers.github.io/beeware/bind2.namespace.drawio.png)
+
+---
+
+## 5. How to Use It
+
+1. Run `./pull-images.sh` to download and install the necessary Docker images.  
+2. Run `./launcher.sh` to start the lab environment. This script creates all the containers.
 
 > **Note:**  
-> To run and simulate the entire honeypot infrastructure described in this document, it is **necessary to have Docker and Katahrá installed** on your system.
-> * Docker enables containerization and management of all services in an isolated and scalable environment. You can download Docker here: [https://www.docker.com/get-started](https://www.docker.com/get-started).
-> * Katahrá ... You can download Katahrá here: ([https://www.kathara.org](https://www.kathara.org)).
-
-
+> To run and simulate the entire honeypot infrastructure described in this document, it is **necessary to have Docker and Kathará installed** on your system.  
+> * Docker enables containerization and management of all services in an isolated and scalable environment. You can download Docker here: [https://www.docker.com/get-started](https://www.docker.com/get-started).  
+> * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
