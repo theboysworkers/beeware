@@ -14,6 +14,7 @@ dns64 = lab.new_machine("dns64", image="theb0ys/dns64:latest")
 lab.connect_machine_to_link("dns64", "W", machine_iface_number = 0, mac_address=generate_mac())
 lab.create_startup_file_from_path(dns64, "machines_startup_script/backbone/docker-entry-dns64.sh")
 
+# Router fw manages the networks I, E, W
 fw = lab.new_machine("fw", image="theb0ys/base:latest")
 lab.connect_machine_to_link("fw", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:01")
 lab.connect_machine_to_link("fw", "I", machine_iface_number = 1, mac_address=generate_mac())

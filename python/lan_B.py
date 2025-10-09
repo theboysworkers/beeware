@@ -11,7 +11,7 @@ lab.connect_machine_to_link("switchb", "B4", machine_iface_number = 5)
 lab.create_startup_file_from_path(switchb, "machines_startup_script/lan_b/switchb.sh")
 
 wsa1 = lab.new_machine("wsa1", image="theb0ys/apache")
-lab.connect_machine_to_link("wsa1", "M1", machine_iface_number = 0, mac_address="00:00:00:00:01:04")
+lab.connect_machine_to_link("wsa1", "M1", machine_iface_number = 0, mac_address="00:00:00:00:00:b1")
 lab.connect_machine_to_link("wsa1", "B1", machine_iface_number = 1)
 lab.get_machine("wsa1").copy_directory_from_path("machines_configurations/wsa1/html", "/var/www/html")
 lab.get_machine("wsa1").create_file_from_path("machines_configurations/wsa1/apache2/sites-available/000-default.conf", "/etc/apache2/sites-available/000-default.conf")
@@ -19,7 +19,7 @@ lab.get_machine("wsa1").copy_directory_from_path("machines_configurations/syslog
 lab.create_startup_file_from_path(wsa1, "machines_startup_script/lan_b/wsa1.sh")
 
 mdb = lab.new_machine("mdb", image="theb0ys/mariadb")
-lab.connect_machine_to_link("mdb", "M1", machine_iface_number = 0, mac_address="00:00:00:00:01:05")
+lab.connect_machine_to_link("mdb", "M1", machine_iface_number = 0, mac_address="00:00:00:00:00:b2")
 lab.connect_machine_to_link("mdb", "B2", machine_iface_number = 1)
 lab.get_machine("mdb").copy_directory_from_path("machines_configurations/mdb/mysql/mariadb.conf.d", "/etc/mysql/mariadb.conf.d")      # -- da rivedere 
 lab.get_machine("mdb").copy_directory_from_path("machines_configurations/mdb/data", "/root")
@@ -27,19 +27,16 @@ lab.get_machine("mdb").copy_directory_from_path("machines_configurations/syslog-
 lab.create_startup_file_from_path(mdb, "machines_startup_script/lan_b/mdb.sh")
 
 smb = lab.new_machine("smb", image="theb0ys/samba")
-lab.connect_machine_to_link("smb", "M1", machine_iface_number = 0, mac_address="00:00:00:00:01:06")
+lab.connect_machine_to_link("smb", "M1", machine_iface_number = 0, mac_address="00:00:00:00:00:b3")
 lab.connect_machine_to_link("smb", "B3", machine_iface_number = 1)
 lab.get_machine("smb").copy_directory_from_path("machines_configurations/smb/srv", "/srv")
 lab.get_machine("smb").copy_directory_from_path("machines_configurations/smb/samba", "/etc/samba")
 lab.get_machine("smb").copy_directory_from_path("machines_configurations/syslog-client", "/etc")
 lab.create_startup_file_from_path(smb, "machines_startup_script/lan_b/smb.sh")
 
-mxs = lab.new_machine("mxs", image="theb0ys/postfix-dovecot", bridged = True)
-lab.connect_machine_to_link("mxs", "M1", machine_iface_number = 0, mac_address="00:00:00:00:01:19") # da modificare
+mxs = lab.new_machine("mxs", image="theb0ys/postfix-dovecot")
+lab.connect_machine_to_link("mxs", "M1", machine_iface_number = 0, mac_address="00:00:00:00:00:b4")
 lab.connect_machine_to_link("mxs", "B4", machine_iface_number = 1)
 lab.get_machine("mxs").create_file_from_path("machines_configurations/mxs/postfix/main.cf", "/etc/postfix/main.cf")
 lab.get_machine("mxs").create_file_from_path("machines_configurations/mxs/dovecot/conf.d/10-auth.conf", "/etc/dovecot/conf.d/10-auth.conf")
-# lab.get_machine("smb").copy_directory_from_path("machines_configurations/smb/srv", "/srv")
-# lab.get_machine("smb").copy_directory_from_path("machines_configurations/smb/samba", "/etc/samba")
-# lab.get_machine("smb").copy_directory_from_path("machines_configurations/syslog-client", "/etc")
 lab.create_startup_file_from_path(mxs, "machines_startup_script/lan_b/mxs.sh")
