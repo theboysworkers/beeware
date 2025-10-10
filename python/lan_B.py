@@ -1,6 +1,8 @@
 from meta import lab
 
-# LAN B
+# LAN B contains key backend systems responsible for hosting web applications, managing databases,
+# and providing internal communication and storage services.# LAN B
+
 switchb = lab.new_machine("switchb", image="theb0ys/base")
 lab.connect_machine_to_link("switchb", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:04")
 lab.connect_machine_to_link("switchb", "B", machine_iface_number = 1)

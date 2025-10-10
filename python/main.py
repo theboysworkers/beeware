@@ -20,15 +20,13 @@ import nids
 Kathara.get_instance().deploy_lab(lab)
 
 
-
-
 from collections import defaultdict
 
 stats = next(Kathara.get_instance().get_machines_stats(lab_name=lab.name))
 
 interface_map = defaultdict(list)
 
-# Costruzione della mappa interfaccia -> macchine
+# Build the interface -> machines map
 for _, machine_info in stats.items():
     name = machine_info.name
     interfaces = machine_info.interfaces
@@ -37,8 +35,8 @@ for _, machine_info in stats.items():
     for iface in iface_list:
         interface_map[iface].append(name)
 
-# Stampa ordinata e compatta
-print("=== TOPOLOGIA INTERFACCIA -> MACCHINE ===\n")
+# Neatly formatted and compact output
+print("=== INTERFACE → MACHINES TOPOLOGY ===\n")
 for iface in sorted(interface_map.keys()):
     machines_str = ' '.join(sorted(interface_map[iface]))
     print(f"{iface:<8} → {machines_str}")

@@ -40,3 +40,5 @@ def append_startup(machine_name, command):
         machine_startup[machine_name] = []
     
     machine_startup[machine_name].append(command)
+
+

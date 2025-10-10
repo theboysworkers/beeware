@@ -1,7 +1,9 @@
 from meta import lab
 
 
-# LAN A
+# LAN A hosts core infrastructure services that support authentication, name resolution,
+# and centralized logging within the internal environment.
+
 switcha = lab.new_machine("switcha", image="theb0ys/base:latest")
 lab.connect_machine_to_link("switcha", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:03")
 lab.connect_machine_to_link("switcha", "A", machine_iface_number = 1)

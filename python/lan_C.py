@@ -1,7 +1,9 @@
 from meta import lab
 
 
-# LAN C
+# LAN C provides externally accessible services and secure remote connectivity,
+# acting as the main interface between the internal infrastructure and external users or systems.
+
 switchc = lab.new_machine("switchc", image="theb0ys/base:latest")
 lab.connect_machine_to_link("switchc", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:05")
 lab.connect_machine_to_link("switchc", "C", machine_iface_number = 1)

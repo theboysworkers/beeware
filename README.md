@@ -64,9 +64,9 @@ IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is th
   It is partitioned into a large number of subnets (**up to 240 LANs**) to support potential large-scale deployments.  
   Applied subnetting: `2a04:0:0:10::/60` → `2a04:0:0:ff::/60`  
   Currently active networks:
-  - **LAN S**
-  - **LAN D**
-  - **LAN O**
+  - **LAN S** - System administrators network
+  - **LAN D** - Managers (executives) network
+  - **LAN O** - General Users (others) network
 
 ![Network Architecture](https://theboysworkers.github.io/beeware/network.drawio.png)
 
@@ -77,17 +77,20 @@ IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is th
 The following services are deployed within the simulated infrastructure to represent typical enterprise systems. They are distributed across three internal networks (LANs):
 
 ### 3.1 LAN A
+This LAN hosts core infrastructure services that support authentication, name resolution, and centralized logging within the internal environment.
 - **bind1**: Internal DNS server for local hostname resolution and service discovery.  
 - **rsyslog**: Centralized logging system for auditing and monitoring.  
 - **oldap**: Directory service providing centralized authentication and user management.
 
 ### 3.2 LAN B
+LAN B contains key backend systems responsible for hosting web applications, managing databases, and providing internal communication and storage services.
 - **wsa1**: Apache web server hosting internal web content.  
 - **mdb**: MariaDB relational database for storing application and system data.  
 - **smb**: Samba server offering Windows-compatible file and printer sharing.  
 - **mxs**: Mail server with Postfix and Dovecot services.
 
 ### 3.3 LAN C
+This LAN provides externally accessible services and secure remote connectivity, acting as the main interface between the internal infrastructure and external users or systems.
 - **wsa2**: Apache web server serving public-facing websites and web applications.  
 - **wsn**: Nginx server acting as a reverse proxy or lightweight web server.  
 - **bind2**: External DNS server for Internet resolution.  
@@ -117,9 +120,10 @@ The following services are deployed within the simulated infrastructure to repre
 > **Note:**  
 > To run and simulate the entire honeypot infrastructure described in this document, it is **necessary to have Docker and Kathará installed** on your system.  
 > * Docker enables containerization and management of all services in an isolated and scalable environment. You can download Docker here: [https://www.docker.com/get-started](https://www.docker.com/get-started).  
-<<<<<<< HEAD
 > * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
 
-=======
-> * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
->>>>>>> unstable
+## 6 Tips and tricks
+
+- To test individual containers without opening an interactive shell, you can pipe the script `network-test.sh` into the container like this:  `cat network-test.sh | docker exec -i <container-name> bash`
+
+- To run tests for particular LANs, open `python/main.py` and comment out any import statements for modules you do not wish to include in the current run. Leave the backbone import active at all times because it represents the network’s core/dorsal topology.
