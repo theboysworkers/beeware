@@ -21,6 +21,7 @@
    - [4.1 Internal Namespace](#41-internal-namespace)
    - [4.2 External Namespace](#42-external-namespace)
 5. [How to Use It](#5-how-to-use-it)
+6. [Tips and tricks](#6-tips-and-tricks)
 
 ---
 
