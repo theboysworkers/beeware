@@ -9,10 +9,12 @@
   <meta name="author" content="Michela Sicuranza, Lorenzo Ricciardi">
   <meta name="title" content="Beeware Honeypot — Cyber Intelligence Platform">
   <meta name="description"
-        content="Beeware - a modern honeypot system designed to attract and analyze cyber attackers. Developed by p1c1s and sicmic, providing valuable intelligence for security strategies.">
+    content="Beeware - a modern honeypot system designed to attract and analyze cyber attackers. Developed by Michela Sicuranza and Lorenzo Ricciardi, providing valuable intelligence for security strategies.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Roboto Mono', monospace;
@@ -133,16 +135,38 @@
       text-decoration: underline;
     }
 
+    footer img {
+      vertical-align: middle;
+      margin: 0px 3px;
+      height: 20px;
+      width: auto;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
-      p { font-size: 0.95rem; padding: 0.75rem; }
-      .cta { padding: 0.5rem 1rem; }
-      .badge img { width: 24px; height: 24px; }
+      p {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+      }
+
+      .cta {
+        padding: 0.5rem 1rem;
+      }
+
+      .badge img {
+        width: 24px;
+        height: 24px;
+      }
     }
 
     @media (max-width: 480px) {
-      p { font-size: 0.9rem; }
-      .badge { padding: 0.4rem 0.6rem; }
+      p {
+        font-size: 0.9rem;
+      }
+
+      .badge {
+        padding: 0.4rem 0.6rem;
+      }
     }
   </style>
 </head>
@@ -151,18 +175,19 @@
   <img src="logo.svg" alt="Beeware logo" class="logo">
   <div class="badge-container">
     <div class="badge">
-      <img src="https://github.com/p1c1s.png" alt="Foto di p1c1s">
-      <a class="name" href="https://github.com/p1c1s" target="_blank">p1c1s</a>
-    </div>
-    <div class="badge">
       <img src="https://github.com/sicmic.png" alt="Foto di sicmic">
       <a class="name" href="https://github.com/sicmic" target="_blank">sicmic</a>
+    </div>
+    <div class="badge">
+      <img src="https://github.com/p1c1s.png" alt="Foto di p1c1s">
+      <a class="name" href="https://github.com/p1c1s" target="_blank">p1c1s</a>
     </div>
   </div>
 
   <p>
     Beeware is a modern honeypot system designed to attract and analyze cyber attackers.
-    Developed by <strong>p1c1s</strong> and <strong>sicmic</strong>, providing valuable intelligence for advanced security strategies.
+    Developed by <strong>Michela Sicuranza</strong> and <strong>Lorenzo Ricciardi</strong>, providing valuable intelligence for advanced
+    security strategies.
   </p>
 
   <div class="cta-container">
@@ -170,7 +195,8 @@
   </div>
 
   <footer>
-    Developed with ❤️ using the <a href="https://www.kathara.org" target="_blank">Kathará Framework</a>
+    Developed with ❤️ using the<a href="https://www.kathara.org" target="_blank"><img src="kathara.png"
+        alt="Kathará logo">Kathará Framework</a>
   </footer>
 </body>
 
