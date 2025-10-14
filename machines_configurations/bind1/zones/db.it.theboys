@@ -16,7 +16,6 @@ oldap       IN AAAA   2a04:0:0:0::2
 syslog      IN AAAA   2a04:0:0:0::3
 bind1       IN AAAA   2a04:0:0:0::4
 
-
 ; ========================
 ; LAN B - 2a04:0:0:1::/64
 ; ========================
@@ -29,8 +28,8 @@ mxs.theboys.it. IN AAAA 2a04:0:0:1::5
 
 ; vhost di wsa1
 helpdesk    IN AAAA   2a04:0:0:1::2
+mail        IN AAAA   2a04:0:0:1::2
 manager     IN AAAA   2a04:0:0:1::2
-roundcube   IN AAAA   2a04:0:0:1::2
 sysloghub   IN AAAA   2a04:0:0:1::2
 
 ; ========================
