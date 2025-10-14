@@ -10,20 +10,22 @@ RUN apt update && \
         masscan \
         nmap \
         whatweb \
-        unzip && \
+        unzip \
+        python3-venv && \
         apt clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Create a virtual environment for Python
+RUN python3 -m venv /opt/venv
+
+# Install Dirsearch in the virtual environment
+RUN /opt/venv/bin/pip install dirsearch
 
 # Download and install Metasploit Framework
 RUN curl -o msfinstall https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb && \
     chmod 755 msfinstall && \
     ./msfinstall && \
     rm msfinstall
-
-# Add new user
-# RUN useradd -m -s /bin/bash red-hornet && \
-#     echo "red-hornet:password" | chpasswd && \
-#     usermod -aG sudo red-hornet
 
 # Set the shell prompt to red
 RUN echo "PS1='\[\e[01;31m\][\u@\h \W]\$\[\e[00m\] '" >> /root/.bashrc
@@ -48,3 +50,5 @@ RUN chmod +x /root/.red_hornet.sh
 
 # Append the script to .bashrc to run on login
 RUN cat /root/.red_hornet.sh >> /root/.bashrc
+
+RUN echo "alias dirsearch='python3 /opt/venv/lib/python3.11/site-packages/dirsearch/dirsearch.py'" >> /root/.bashrc
