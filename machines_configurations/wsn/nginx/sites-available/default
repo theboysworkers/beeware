@@ -20,7 +20,7 @@ server {
 
 	server_name agency.theboys.it;
 
-	root /var/www/html/theboys;
+	root /var/www/html/agency;
 	index index.html;
 
 	location / {
