@@ -17,7 +17,7 @@
    - [3.1 LAN A](#31-lan-a)
    - [3.2 LAN B](#32-lan-b)
    - [3.3 LAN C](#33-lan-c)
-4. [Namespaces](#4-namespaces)
+4. [DNS Namespaces](#4-dns-namespaces)
    - [4.1 Internal Namespace](#41-internal-namespace)
    - [4.2 External Namespace](#42-external-namespace)
 5. [How to Use It](#5-how-to-use-it)
@@ -85,21 +85,39 @@ This LAN hosts core infrastructure services that support authentication, name re
 
 ### 3.2 LAN B
 LAN B contains key backend systems responsible for hosting web applications, managing databases, and providing internal communication and storage services.
-- **wsa1**: Apache web server hosting internal web content.  
-- **mdb**: MariaDB relational database for storing application and system data.  
+- **wsa1**: Apache web server responsible for hosting various internal web-based services and tools used by the organization. It provides access to multiple subdomains for different operational functions, including:
+  - helpdesk.theboys.it – Internal ticketing and support portal for IT and facility requests.
+  - mail.theboys.it – Webmail interface or mail gateway for employee email access.
+  - manager.theboys.it – Financial management portal used for tracking company accounts, expenses, and accounting operations.
+  - sysloghub.theboys.it – Web-based log collection and monitoring interface for infrastructure diagnostics.
+- **mdb**: MariaDB relational database for storing application and system data.
+   - helpdeskdb
+   - ...
+   - managedb
+   - 
 - **smb**: Samba server offering Windows-compatible file and printer sharing.  
 - **mxs**: Mail server with Postfix and Dovecot services.
 
 ### 3.3 LAN C
 This LAN provides externally accessible services and secure remote connectivity, acting as the main interface between the internal infrastructure and external users or systems.
-- **wsa2**: Apache web server serving public-facing websites and web applications.  
-- **wsn**: Nginx server acting as a reverse proxy or lightweight web server.  
+- **wsa2**: Apache web server responsible for delivering public-facing websites and online applications. It hosts the following domains:
+   - ecopulse.theboys.it – Informational platform focused on environmental sustainability and green initiatives.
+   - invest.theboys.it – Financial portal presenting investment projects and funding opportunities.
+   - quix.theboys.it – Interactive web application quiz designed for fun.
+   - techsove.theboys.it – Showcase website for promoting IT solutions and technical services offered by the company. 
+- **wsn**: Nginx-based reverse proxy and lightweight web server used for serving public landing pages and promotional content. It manages the following domains:
+   - agency.theboys.it – Landing page for the company’s marketing and digital services division.
+   - blackhoney.theboys.it – Brand-focused website or e-commerce platform for a dedicated product line.
+   - myrecipe.theboys.it – Themed content portal centered around food and cooking-related material.
+   - puffcats.theboys.it – – Entertainment website displaying a curated gallery of cats, likely for fun, engagement, or community sharing.
 - **bind2**: External DNS server for Internet resolution.  
 - **ovpn**: OpenVPN server providing secure remote access to the internal network.
 
 ---
 
-## 4. Namespaces
+## 4. DNS Namespaces
+
+The DNS namespace is the hierarchical structure used by the Domain Name System (DNS) to organize and resolve domain names on the internet. In this project, the Top-Level Domain (TLD) is .it, the second-level domain is theboys, and the subdomains are illustrated in the figures.
 
 ### 4.1 Internal Namespace
 - **BIND1:** Internal DNS for resolving local network hostnames.  
@@ -128,3 +146,20 @@ This LAN provides externally accessible services and secure remote connectivity,
 - To test individual containers without opening an interactive shell, you can pipe the script `network-test.sh` into the container like this:  `cat network-test.sh | docker exec -i <container-name> bash`
 
 - To run tests for particular LANs, open `python/main.py` and comment out any import statements for modules you do not wish to include in the current run. Leave the backbone import active at all times because it represents the network’s core/dorsal topology.
+
+
+....
+
+## tayga
+```
+# Lan B
+map 193.110.0.12    2a04:0:0:1::2   # wsa1
+map 193.110.0.13    2a04:0:0:1::3   # mdb
+map 193.110.0.14    2a04:0:0:1::4   # smb
+map 193.110.0.15    2a04:0:0:1::5   # mxs
+# Lan C
+map 193.110.0.22    2a04:0:0:2::2   # wsa2
+map 193.110.0.23    2a04:0:0:2::3   # wsn
+map 193.110.0.24    2a04:0:0:2::4   # ovpn
+map 193.110.0.25    2a04:0:0:2::5   # bind2
+```
