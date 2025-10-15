@@ -4,7 +4,8 @@
 
 # --- STEP 1: Add Tayga route if it doesn't exist ---
 GATEWAY="172.17.0.2"
-ROUTE="193.110.0.0/24"
+ROUTE="172.17.0.128/25"
+# ROUTE="193.110.0.0/24"
 IFACE="docker0"
 
 # Add Tayga route to host
@@ -20,9 +21,9 @@ fi
 HOSTS_FILE="/etc/hosts"
 IPV4="$GATEWAY"
 
-DOMAINS=("helpdesk.theboys.it" "mail.theboys.it" "manager.theboys.it" "sysloghub.theboys.it"   # wsa1's virtual host
-         "ecopulse.theboys.it" "invest.theboys.it" "quix.theboys.it" "techsolve.theboys.it"    # wsa2's virtual host
-         "agency.theboys.it" "blackhoney.theboys.it" "myrecipe.theboys.it" "puffcats.theboys.it")                    # wsn's virtual host
+DOMAINS=("helpdesk.theboys.it" "mail.theboys.it" "manager.theboys.it" "sysloghub.theboys.it"        # wsa1's virtual host
+         "ecopulse.theboys.it" "invest.theboys.it" "quix.theboys.it" "techsolve.theboys.it"         # wsa2's virtual host
+         "agency.theboys.it" "blackhoney.theboys.it" "myrecipe.theboys.it" "puffcats.theboys.it")   # wsn's virtual host
 
 echo "✅ Updated /etc/hosts with ip <-> domain"
 if ! grep -q  "Beeware hosts" "$HOSTS_FILE"; then
@@ -31,15 +32,15 @@ if ! grep -q  "Beeware hosts" "$HOSTS_FILE"; then
 #           Beeware hosts          #
 ####################################
 # wsa2
-193.110.0.22   ecopulse.theboys.it
-193.110.0.22   invest.theboys.it
-193.110.0.22   quix.theboys.it
-193.110.0.22   techsolve.theboys.it
+172.17.0.134   ecopulse.theboys.it
+172.17.0.134   invest.theboys.it
+172.17.0.134   quix.theboys.it
+172.17.0.134   techsolve.theboys.it
 # wsn
-193.110.0.23   agency.theboys.it
-193.110.0.23   blackhoney.theboys.it
-193.110.0.23   myrecipe.theboys.it
-193.110.0.23   puffcats.theboys.it
+172.17.0.135   agency.theboys.it
+172.17.0.135   blackhoney.theboys.it
+172.17.0.135   myrecipe.theboys.it
+172.17.0.135   puffcats.theboys.it
 EOF
 fi
 
