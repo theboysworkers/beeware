@@ -1,165 +1,44 @@
 <p align="center">
- <a href="https://theboysworkers.github.io/beeware">
+  <a href="https://theboysworkers.github.io/beeware">
     <img src="https://theboysworkers.github.io/beeware/logo.svg" alt="Logo" width="300" height="300">
- </a>
+  </a>
   <br><br>
   <strong>Capture and analyze malicious traffic effectively...</strong>
 </p>
 
-# Honeypot Deployment Documentation
+# Beeware — Honeypot Deployment Documentation
 
-## Table of Contents
-1. [Introduction](#1-introduction)
-2. [Network Architecture](#2-network-architecture)
-   - [2.1 Routing Tables](#21-routing-tables)
-   - [2.2 Network and Subnets](#22-network-and-subnets)
-3. [Services Overview](#3-services-overview)
-   - [3.1 LAN A](#31-lan-a)
-   - [3.2 LAN B](#32-lan-b)
-   - [3.3 LAN C](#33-lan-c)
-4. [DNS Namespaces](#4-dns-namespaces)
-   - [4.1 Internal Namespace](#41-internal-namespace)
-   - [4.2 External Namespace](#42-external-namespace)
-5. [How to Use It](#5-how-to-use-it)
-6. [Tips and tricks](#6-tips-and-tricks)
+**Repository / Wiki:** https://github.com/theboysworkers/beeware/wiki  
+> **It is strongly recommended to read the wiki** for detailed instructions, examples, and deployment guidance.
 
 ---
 
-## 1. Introduction
+## Description
 
-This document outlines the implementation of a honeypot system.
+Beeware is a collection of scripts and resources for deploying honeypots and analyzing malicious network traffic in a controlled lab environment. It is designed for educational and research purposes, allowing easy setup of vulnerable network scenarios, data collection, and subsequent analysis.
 
-A **honeypot** is a computing resource intentionally designed to **attract and deceive cyber attackers** by simulating system vulnerabilities or exposing seemingly sensitive data. Its main objective is to **monitor and analyze attack techniques**, gathering valuable intelligence to improve overall security strategies.
-
-Honeypots are powerful tools for **studying malicious behavior** and developing more effective defense mechanisms.  
-
-To simulate a realistic corporate environment, a **network architecture** was designed for a fictional company called **"The Boys"** — a young, dynamic IT firm specializing in tailor-made digital solutions for both businesses and individuals.
-
-To ensure **greater scalability** and **zero deployment costs**, the entire infrastructure is **fully simulated** using the advanced emulation tool [Kathará](https://www.kathara.org).
+**Note:** This project was developed as part of a **bachelor's thesis at Roma Tre University** by **Michela Sicuranza** and **Lorenzo Ricciardi**, using the **Kathará framework** for network emulation and honeypot deployment.
 
 ---
 
-## 2. Network Architecture
+## Key Features
 
-The honeypot environment is entirely **IPv6-based**, reflecting modern network standards and challenges. The IT infrastructure of *The Boys* features a **robust and scalable architecture**, designed to support both the production and distribution of digital content efficiently.
-
-### 2.1 Routing Tables
-
-Custom routing tables are configured within the routers to manage traffic across the segmented network. These tables define the paths packets should follow to reach specific subnets, ensuring efficient communication between internal services and network zones.
-
-### 2.2 Network and Subnets
-
-The network is divided into multiple **Local Area Networks (LANs)**, each with a specific functional role. Below is an overview of the main LANs and their representation in the topological schema.
-
-IPv6 addressing has been planned using the base prefix: `2a04::/56`, which is then split into two main subnet groups through **subnetting**.
-
-- The **first macro subnet** is dedicated to servers and hosts critical services such as DNS, web servers, and more.  
-  This subnet is further divided to allow for future scalability, yielding **16 subnets** in total.  
-  Applied subnetting: `2a04:0:0:0::/60` → `2a04:0:0:f::/60`  
-  Currently, only three networks have been implemented:
-  - **LAN A**
-  - **LAN B**
-  - **LAN C**
-
-- The **second macro subnet** is reserved for employee workstations.  
-  It is partitioned into a large number of subnets (**up to 240 LANs**) to support potential large-scale deployments.  
-  Applied subnetting: `2a04:0:0:10::/60` → `2a04:0:0:ff::/60`  
-  Currently active networks:
-  - **LAN S** - System administrators network
-  - **LAN D** - Managers (executives) network
-  - **LAN O** - General Users (others) network
-
-![Network Architecture](https://theboysworkers.github.io/beeware/network.drawio.png)
+- Templates and scripts to deploy various types of honeypots.
+- Integration with traffic capture and analysis tools.
+- Network configurations reproducible using Kathara.
+- Step-by-step documentation for conducting controlled experiments.
+- Logging mechanisms for forensic or research analysis.
 
 ---
 
-## 3. Services Overview
+## Requirements
 
-The following services are deployed within the simulated infrastructure to represent typical enterprise systems. They are distributed across three internal networks (LANs):
+- Linux system is **recommended** (Fedora/Ubuntu/Debian/...).  
+  > Most scripts, bash/sh commands, and Kathara are fully supported on Linux.  
 
-### 3.1 LAN A
-This LAN hosts core infrastructure services that support authentication, name resolution, and centralized logging within the internal environment.
-- **bind1**: Internal DNS server for local hostname resolution and service discovery.  
-- **rsyslog**: Centralized logging system for auditing and monitoring.  
-- **oldap**: Directory service providing centralized authentication and user management.
+- Windows **can be used**, but some scripts may require adjustments and bash/sh commands will **not work natively**.  
+  > Using WSL (Windows Subsystem for Linux) or a Linux VM is recommended for full functionality.
 
-### 3.2 LAN B
-LAN B contains key backend systems responsible for hosting web applications, managing databases, and providing internal communication and storage services.
-- **wsa1**: Apache web server responsible for hosting various internal web-based services and tools used by the organization. It provides access to multiple subdomains for different operational functions, including:
-  - helpdesk.theboys.it – Internal ticketing and support portal for IT and facility requests.
-  - mail.theboys.it – Webmail interface or mail gateway for employee email access.
-  - manager.theboys.it – Financial management portal used for tracking company accounts, expenses, and accounting operations.
-  - sysloghub.theboys.it – Web-based log collection and monitoring interface for infrastructure diagnostics.
-- **mdb**: MariaDB relational database for storing application and system data.
-   - helpdeskdb
-   - ...
-   - managedb
-   - 
-- **smb**: Samba server offering Windows-compatible file and printer sharing.  
-- **mxs**: Mail server with Postfix and Dovecot services.
-
-### 3.3 LAN C
-This LAN provides externally accessible services and secure remote connectivity, acting as the main interface between the internal infrastructure and external users or systems.
-- **wsa2**: Apache web server responsible for delivering public-facing websites and online applications. It hosts the following domains:
-   - ecopulse.theboys.it – Informational platform focused on environmental sustainability and green initiatives.
-   - invest.theboys.it – Financial portal presenting investment projects and funding opportunities.
-   - quix.theboys.it – Interactive web application quiz designed for fun.
-   - techsove.theboys.it – Showcase website for promoting IT solutions and technical services offered by the company. 
-- **wsn**: Nginx-based reverse proxy and lightweight web server used for serving public landing pages and promotional content. It manages the following domains:
-   - agency.theboys.it – Landing page for the company’s marketing and digital services division.
-   - blackhoney.theboys.it – Brand-focused website or e-commerce platform for a dedicated product line.
-   - myrecipe.theboys.it – Themed content portal centered around food and cooking-related material.
-   - puffcats.theboys.it – – Entertainment website displaying a curated gallery of cats, likely for fun, engagement, or community sharing.
-- **bind2**: External DNS server for Internet resolution.  
-- **ovpn**: OpenVPN server providing secure remote access to the internal network.
-
----
-
-## 4. DNS Namespaces
-
-The DNS namespace is the hierarchical structure used by the Domain Name System (DNS) to organize and resolve domain names on the internet. In this project, the Top-Level Domain (TLD) is .it, the second-level domain is theboys, and the subdomains are illustrated in the figures.
-
-### 4.1 Internal Namespace
-- **BIND1:** Internal DNS for resolving local network hostnames.  
-
-![Internal Namespace](https://theboysworkers.github.io/beeware/bind1.namespace.drawio.png)
-
-### 4.2 External Namespace
-- **BIND2:** External DNS serving Internet queries.
-
-![External Namespace](https://theboysworkers.github.io/beeware/bind2.namespace.drawio.png)
-
----
-
-## 5. How to Use It
-
-1. Run `./pull-images.sh` to download and install the necessary Docker images.
-2. Run `./launcher.sh` to start the lab environment. This script creates all the containers; depending on your system, the complete deployment may take up to one minute. Monitor the script output for progress and any potential errors.
-
-> **Note:**  
-> To run and simulate the entire honeypot infrastructure described in this document, it is **necessary to have Docker and Kathará installed** on your system.  
-> * Docker enables containerization and management of all services in an isolated and scalable environment. You can download Docker here: [https://www.docker.com/get-started](https://www.docker.com/get-started).  
-> * Kathará allows full network emulation and lab management. Download here: [https://www.kathara.org](https://www.kathara.org).
-
-## 6 Tips and tricks
-
-- To test individual containers without opening an interactive shell, you can pipe the script `network-test.sh` into the container like this:  `cat network-test.sh | docker exec -i <container-name> bash`
-
-- To run tests for particular LANs, open `python/main.py` and comment out any import statements for modules you do not wish to include in the current run. Leave the backbone import active at all times because it represents the network’s core/dorsal topology.
-
-
-....
-
-## tayga
-```
-# Lan B
-map 193.110.0.12    2a04:0:0:1::2   # wsa1
-map 193.110.0.13    2a04:0:0:1::3   # mdb
-map 193.110.0.14    2a04:0:0:1::4   # smb
-map 193.110.0.15    2a04:0:0:1::5   # mxs
-# Lan C
-map 193.110.0.22    2a04:0:0:2::2   # wsa2
-map 193.110.0.23    2a04:0:0:2::3   # wsn
-map 193.110.0.24    2a04:0:0:2::4   # ovpn
-map 193.110.0.25    2a04:0:0:2::5   # bind2
-```
+- Python 3.x
+- Kathará (https://www.kathara.org/) — used to emulate network topologies.
+- Docker for run containers 

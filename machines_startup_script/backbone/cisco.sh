@@ -64,3 +64,21 @@ systemctl start ssh
 # ip6tables -A FORWARD -j LOG --log-prefix "DROP FORWARD: " --log-level 4 -m comment --comment "Log dropped FORWARD packets"
 
 
+#!/bin/bash
+
+# ip6tables -F
+# # ip6tables -A INPUT -p tcp -s ::/0 -d 2a04::4 --dport 53 -j ACCEPT
+# ip6tables -A INPUT -p udp -s ::/0 -d 2a04::4 --dport 53 -j ACCEPT
+# ip6tables -A INPUT -p udp -s ::/0 -d 2a04::4 -j ACCEPT
+# ip6tables -A INPUT -p icmpv6 -j ACCEPT
+# ip6tables -A INPUT -j DROP
+
+# ip6tables -A FORWARD -s 2a04:0:0:1::/64 -d 2a04::/64 -j ACCEPT
+# ip6tables -A FORWARD -p tcp -d 2a04::4 --dport 53 -j ACCEPT
+# ip6tables -A FORWARD -p udp -d 2a04::4 --dport 53 -j ACCEPT
+# ip6tables -A FORWARD -p icmpv6 -j ACCEPT
+# ip6tables -A FORWARD -s 2a04:0:0:2::/64 -d 2a04::/64 -j DROP
+# ip6tables -A FORWARD -s 2a04:0:0:10::/64 -d 2a04::/64 -j DROP
+# ip6tables -A FORWARD -s 2a04:0:0:11::/64 -d 2a04::/64 -j DROP
+# ip6tables -A FORWARD -s 2a04:0:0:12::/64 -d 2a04::/64 -j DROP
+
