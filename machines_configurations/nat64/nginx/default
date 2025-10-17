@@ -27,7 +27,7 @@ server {
 # Proxy for roundcube.theboys.it 
 server {
     listen 80;
-    server_name roundcube.theboys.it;
+    server_name mail.theboys.it;
 
     location / {
         proxy_pass http://[2a04:0:0:1::2]:80;
@@ -53,7 +53,6 @@ server {
 ### Note
 ### The websites manager.theboys.it and sysloghub.tehboys.it should to be available
 ### only from the INTRANET
-
 
 
 # Proxy for ecopulse.theboys.it
