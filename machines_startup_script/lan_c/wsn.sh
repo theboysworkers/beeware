@@ -21,8 +21,15 @@ rsyslogd -N1 -f /etc/rsyslog.d/20-forward-logs.conf
 # Restart the rsyslog service
 systemctl restart rsyslog
 
+# Set permissions to web root
+chown -R www-data:www-data /var/www/html
+chmod 770 -R /var/www/html/*
+
 # Start the nginx web server
 systemctl start nginx
+
+# Start the PHP FastCGI Process Manager (FPM)
+systemctl start php8.2-fpm
 
 # Append the rule that defines ListenAddress only on eth0
 echo "ListenAddress fe80::200:ff:fe00:108%eth0" >> /etc/ssh/sshd_config

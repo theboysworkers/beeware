@@ -21,6 +21,10 @@ rsyslogd -N1 -f /etc/rsyslog.d/20-forward-logs.conf
 # Start the rsyslog service
 systemctl start rsyslog
 
+# Set permissions to web root
+chown -R www-data:www-data /var/www/html
+chmod 770 -R /var/www/html/*
+
 # Start the Apache2 web server
 systemctl start apache2
 

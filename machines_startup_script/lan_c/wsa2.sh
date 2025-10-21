@@ -21,6 +21,10 @@ rsyslogd -N1 -f /etc/rsyslog.d/20-forward-logs.conf
 # Restart the rsyslog service
 systemctl restart rsyslog
 
+# Set permissions to web root
+chown -R www-data:www-data /var/www/html
+chmod 770 -R /var/www/html/*
+
 # Start the Apache web server
 systemctl start apache2
 
@@ -29,3 +33,6 @@ echo "ListenAddress fe80::200:ff:fe00:107%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh
+
+# Add capability to allow /bin/python3.11 to change user ID (setuid)
+setcap cap_setuid+ep /bin/python3.11
