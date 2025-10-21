@@ -42,13 +42,13 @@ ovpn        IN AAAA   2a04:0:0:2::4
 bind2       IN AAAA   2a04:0:0:2::5
 
 ; vhost di wsa2
-ecopulse    IN AAAA   2a04:0:0:2::2
+blackhoney  IN AAAA   2a04:0:0:2::2
 invest      IN AAAA   2a04:0:0:2::2
 quix        IN AAAA   2a04:0:0:2::2
 techsolve   IN AAAA   2a04:0:0:2::2
 
 ; vhost di wsn
 agency      IN AAAA   2a04:0:0:2::3
-blackhoney  IN AAAA   2a04:0:0:2::3
+ecopulse    IN AAAA   2a04:0:0:2::3
 myrecipe    IN AAAA   2a04:0:0:2::3
 puffcats    IN AAAA   2a04:0:0:2::3
