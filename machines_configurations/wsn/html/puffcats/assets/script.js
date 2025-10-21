@@ -11,6 +11,10 @@ const modalTags2 = document.getElementById('modalTags2');
 const closeBtn = document.getElementById('closeBtn');
 const searchInput = document.getElementById('search');
 const randomBtn = document.getElementById('randomBtn');
+const uploadBtn = document.getElementById('uploadBtn');
+const uploadOverlay = document.getElementById('uploadOverlay');
+const closeUploadBtn = document.getElementById('closeUploadBtn');
+
 
 // carica i dati da data.json
 fetch('assets/data.json')
@@ -74,4 +78,13 @@ randomBtn.addEventListener('click', () => {
     if(kittens.length === 0) return;
     const randomCat = kittens[Math.floor(Math.random() * kittens.length)];
     openModal(randomCat);
+});
+
+// Apre il modal per l'upload
+uploadBtn.addEventListener('click', () => uploadOverlay.classList.add('open'));
+
+// Chiude il modal per l'upload
+closeUploadBtn.addEventListener('click', () => uploadOverlay.classList.remove('open'));
+uploadOverlay.addEventListener('click', e => {
+    if (e.target === uploadOverlay) uploadOverlay.classList.remove('open');
 });

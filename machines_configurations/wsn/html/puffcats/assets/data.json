@@ -203,13 +203,13 @@
         },
         {
             "id": 21,
-            "name": "Orazio",
+            "name": "Puzzola",
             "tags": [
                 "vivace",
                 "intelligente"
             ],
             "img": "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg",
-            "desc": "Orazio è vivace e intelligente, sempre pronta a scoprire nuovi giochi e interagire con chi le sta vicino. La sua energia e il suo fascino conquistano tutti."
+            "desc": "Puzzola è vivace e intelligente, sempre pronta a scoprire nuovi giochi e interagire con chi le sta vicino. La sua energia e il suo fascino conquistano tutti."
         },
         {
             "id": 22,
@@ -240,6 +240,46 @@
             ],
             "img": "https://images.pexels.com/photos/1440403/pexels-photo-1440403.jpeg",
             "desc": "Pumpkin è un gattino giocherellone e affettuoso, ama rincorrere palline e fare le fusa accanto a chi gli vuole bene. Il suo pelo arancione e morbido lo rende irresistibile."
+        },
+        {
+            "id": 25,
+            "name": "Orazio",
+            "tags": [
+                "giocoso",
+                "affettuoso"
+            ],
+            "img": "assets/img/orazio.jpeg",
+            "desc": "Orazio è un gattino giocherellone e affettuoso, ama rincorrere palline e fare le fusa accanto a chi gli vuole bene. Il suo pelo arancione e morbido lo rende irresistibile."
+        },
+                {
+            "id": 26,
+            "name": "Pepe",
+            "tags": [
+                "giocoso",
+                "affettuoso"
+            ],
+            "img": "assets/img/pepe.jpeg",
+            "desc": "Pepe è una gattina curiosa e avventurosa, ama arrampicarsi sugli scaffali e scoprire nuovi angoli della casa. Il suo spirito esploratore porta allegria a chi la osserva."
+        },
+                        {
+            "id": 27,
+            "name": "Silvestro",
+            "tags": [
+                "giocoso",
+                "affettuoso"
+            ],
+            "img": "assets/img/silvestro.jpeg",
+            "desc": "Silvestro è un gattino giocherellone e affettuoso, ama rincorrere palline e fare le fusa accanto a chi gli vuole bene. Il suo pelo arancione e morbido lo rende irresistibile."
+        },
+                        {
+            "id": 28,
+            "name": "Velvet",
+            "tags": [
+                "giocoso",
+                "affettuoso"
+            ],
+            "img": "assets/img/velvet.jpeg",
+            "desc": "Velvet ha un portamento elegante e uno sguardo misterioso. Ama muoversi silenziosa e osservare tutto intorno a lei con curiosità e grazia."
         }
     ]
 }

@@ -14,8 +14,10 @@
         <div class="controls">
             <input type="text" id="search" placeholder="Cerca un gatto..." />
             <button id="randomBtn">🎲 Gatto a caso</button>
+            <button id="uploadBtn">📤 Aggiungi Gatto</button> <!-- New upload button -->
         </div>
     </header>
+
     <main id="gallery"></main>
 
     <div class="overlay" id="overlay">
@@ -32,6 +34,21 @@
             </div>
         </div>
     </div>
+
+    <!-- New upload modal -->
+    <div class="overlay" id="uploadOverlay">
+        <div class="modal">
+            <form id="catForm" action="add_cat.php" method="POST" enctype="multipart/form-data">
+                <input class="form-input" type="text" name="name" placeholder="Nome del gatto" required />
+                <input type="text" name="desc" placeholder="Descrizione" required />
+                <input type="text" name="tags" placeholder="Tag (separati da virgole)" required />
+                <input type="file" name="img" accept="image/*" required />
+                    <button type="submit">Aggiungi Gatto</button>
+                    <button type="button" id="closeUploadBtn">Chiudi ✖</button> <!-- Close button for upload modal -->
+            </form>
+        </div>
+    </div>
+
     <script src="assets/script.js"></script>
 </body>
 

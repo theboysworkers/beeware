@@ -28,14 +28,14 @@ server {
 	}
 }
 
-# This block defines a VirtualHost for the domain blackhoney.theboys.it
+# This block defines a VirtualHost for the domain ecopulse.theboys.it
 server {
 	listen 80;
 	listen [::]:80;
 
-	server_name blackhoney.theboys.it;
+	server_name ecopulse.theboys.it;
 
-	root /var/www/html/blackhoney;
+	root /var/www/html/ecopulse;
 	index index.html;
 
 	location / {
@@ -58,7 +58,6 @@ server {
 	}
 }
 
-
 # This block defines a VirtualHost for the domain puffcats.theboys.it
 server {
 	listen 80;
@@ -66,12 +65,17 @@ server {
 
 	server_name puffcats.theboys.it;
 
-	root /var/www/html/puffcats;
-	index index.html;
+    root /var/www/html/puffcats;
+    index index.php index.html index.htm;
 
-	location / {
-		try_files $uri $uri/ =404;
-	}
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
 }
-
-

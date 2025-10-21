@@ -57,6 +57,18 @@ button:hover {
     transform: scale(1.05);
 }
 
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between form fields */
+}
+
+form > input[type="text"]{
+    width: auto;
+    margin-bottom: 5px;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
