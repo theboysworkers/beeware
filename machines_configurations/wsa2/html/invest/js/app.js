@@ -34,3 +34,5 @@ document.addEventListener("DOMContentLoaded", () => {
   filtro.addEventListener("change", () => renderPrezzi(filtro.value));
   caricaPrezzi();
 });
+
+  document.getElementById('current-year').textContent = new Date().getFullYear();
