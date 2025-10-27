@@ -31,11 +31,14 @@ if ! grep -q  "Beeware hosts" "$HOSTS_FILE"; then
 ####################################
 #           Beeware hosts          #
 ####################################
+
 # wsa2
 172.17.0.134   blackhoney.theboys.it
 172.17.0.134   invest.theboys.it
 172.17.0.134   quix.theboys.it
 172.17.0.134   techsolve.theboys.it
+172.17.0.134   zenglish.theboys.it
+
 # wsn
 172.17.0.135   agency.theboys.it
 172.17.0.135   ecopulse.theboys.it
