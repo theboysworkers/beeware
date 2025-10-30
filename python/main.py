@@ -12,10 +12,9 @@ import lan_A
 import lan_B
 import lan_C
 # import lan_S
-import lan_D
+# import lan_D
 # import lan_O
-# import pentesting
-# import nids
+# import other_machines
 
 Kathara.get_instance().deploy_lab(lab)
 
