@@ -2,7 +2,7 @@ from meta import lab
 
 # LAN S
 switchs = lab.new_machine("switchs", image="theb0ys/base")
-lab.connect_machine_to_link("switchs", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:07")
+lab.connect_machine_to_link("switchs", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:f5")
 lab.connect_machine_to_link("switchs", "S", machine_iface_number = 1)
 lab.connect_machine_to_link("switchs", "S1", machine_iface_number = 2)
 lab.connect_machine_to_link("switchs", "S2", machine_iface_number = 3)

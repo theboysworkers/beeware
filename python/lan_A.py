@@ -5,7 +5,7 @@ from meta import lab
 # and centralized logging within the internal environment.
 
 switcha = lab.new_machine("switcha", image="theb0ys/base:latest")
-lab.connect_machine_to_link("switcha", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:03")
+lab.connect_machine_to_link("switcha", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:f1")
 lab.connect_machine_to_link("switcha", "A", machine_iface_number = 1)
 lab.connect_machine_to_link("switcha", "A1", machine_iface_number = 2)
 lab.connect_machine_to_link("switcha", "A2", machine_iface_number = 3)

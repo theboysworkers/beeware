@@ -28,8 +28,8 @@ chmod 770 -R /var/www/html/*
 # Start the Apache2 web server
 systemctl start apache2
 
-# Append the rule that defines ListenAddress only on eth0
-echo "ListenAddress fe80::200:ff:fe00:104%eth0" >> /etc/ssh/sshd_config
+# Append the rule that defines ListenAddress only on eth0 (VLAN managed M1)
+echo "ListenAddress fe80::200:ff:fe00:b1%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh

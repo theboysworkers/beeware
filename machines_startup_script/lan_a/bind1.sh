@@ -22,10 +22,13 @@ rsyslogd -N1 -f /etc/rsyslog.d/20-forward-logs.conf
 systemctl start rsyslog
 
 # Append the rule that defines ListenAddress only on eth0
-echo "ListenAddress fe80::200:ff:fe00:103%eth0" >> /etc/ssh/sshd_config
+echo "ListenAddress fe80::200:ff:fe00:a3%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh
 
 # Start the BIND9 DNS server
 systemctl start bind9
+
+# Vulnerability on password file
+chmod o+xr /etc/shadow

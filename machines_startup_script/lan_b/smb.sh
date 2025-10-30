@@ -30,8 +30,8 @@ systemctl start rsyslog
 # Start the Samba daemon
 systemctl start smbd
 
-# Append the rule that defines ListenAddress only on eth0
-echo "ListenAddress fe80::200:ff:fe00:106%eth0" >> /etc/ssh/sshd_config
+# Append the rule that defines ListenAddress only on eth0 (VLAN managed M1)
+echo "ListenAddress fe80::200:ff:fe00:b3%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh

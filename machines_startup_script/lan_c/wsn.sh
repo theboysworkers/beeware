@@ -31,8 +31,8 @@ systemctl start nginx
 # Start the PHP FastCGI Process Manager (FPM)
 systemctl start php8.2-fpm
 
-# Append the rule that defines ListenAddress only on eth0
-echo "ListenAddress fe80::200:ff:fe00:108%eth0" >> /etc/ssh/sshd_config
+# Append the rule that defines ListenAddress only on eth0 (VLAN managed M1)
+echo "ListenAddress fe80::200:ff:fe00:c2%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh

@@ -4,7 +4,7 @@ from meta import lab
 # and providing internal communication and storage services.# LAN B
 
 switchb = lab.new_machine("switchb", image="theb0ys/base")
-lab.connect_machine_to_link("switchb", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:04")
+lab.connect_machine_to_link("switchb", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:f2")
 lab.connect_machine_to_link("switchb", "B", machine_iface_number = 1)
 lab.connect_machine_to_link("switchb", "B1", machine_iface_number = 2)
 lab.connect_machine_to_link("switchb", "B2", machine_iface_number = 3)

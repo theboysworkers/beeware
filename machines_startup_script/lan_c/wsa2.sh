@@ -28,8 +28,14 @@ chmod 770 -R /var/www/html/*
 # Start the Apache web server
 systemctl start apache2
 
-# Append the rule that defines ListenAddress only on eth0
-echo "ListenAddress fe80::200:ff:fe00:107%eth0" >> /etc/ssh/sshd_config
+# Start the MariaDB service
+service mariadb start
+
+# Import SQL commands from zenglish.sql into MySQL after start MariaDB server
+mysql < /var/www/html/zenglish/zenglish.sql && rm /var/www/html/zenglish/zenglish.sql
+
+# Append the rule that defines ListenAddress only on eth0 (VLAN managed M1)
+echo "ListenAddress fe80::200:ff:fe00:c1%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh

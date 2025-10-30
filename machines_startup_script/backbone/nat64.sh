@@ -21,8 +21,9 @@ ip route add ${TAYGA_CONF_PREFIX} dev nat64
 # Add nameserver
 echo 'nameserver 2a04::4' >> /etc/resolv.conf
 
-# Start the NGINX server
-systemctl start nginx
+# DA RIMUOVERE
+# # Start the NGINX server
+# systemctl start nginx
 
 # Run Tayga as the last because interrept others proceses
 tayga -c /etc/tayga.conf -d

@@ -5,7 +5,7 @@ from meta import lab
 # acting as the main interface between the internal infrastructure and external users or systems.
 
 switchc = lab.new_machine("switchc", image="theb0ys/base:latest")
-lab.connect_machine_to_link("switchc", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:05")
+lab.connect_machine_to_link("switchc", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:f3")
 lab.connect_machine_to_link("switchc", "C", machine_iface_number = 1)
 lab.connect_machine_to_link("switchc", "C1", machine_iface_number = 2)
 lab.connect_machine_to_link("switchc", "C2", machine_iface_number = 3)
@@ -30,10 +30,10 @@ lab.get_machine("wsn").copy_directory_from_path("machines_configurations/syslog-
 lab.create_startup_file_from_path(wsn, "machines_startup_script/lan_c/wsn.sh")
 
 # It needs to privileged permission to work
-ovpn = lab.new_machine("ovpn", image="openvpn/openvpn-as:latest", privileged = True)
+ovpn = lab.new_machine("ovpn", image="theb0ys/openvpn:latest", privileged = True)
 lab.connect_machine_to_link("ovpn", "M1", machine_iface_number = 0, mac_address="00:00:00:00:00:c3")
 lab.connect_machine_to_link("ovpn", "C3", machine_iface_number = 1)
-# lab.create_startup_file_from_path(ovpn, "machines_startup_script/lan_c/ovpn.sh")
+lab.create_startup_file_from_path(ovpn, "machines_startup_script/lan_c/ovpn.sh")
 
 bind2 = lab.new_machine("bind2", image="theb0ys/bind:latest")
 lab.connect_machine_to_link("bind2", "M1", machine_iface_number = 0, mac_address="00:00:00:00:00:c4")

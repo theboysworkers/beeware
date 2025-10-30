@@ -21,8 +21,8 @@ rsyslogd -N1 -f /etc/rsyslog.d/20-forward-logs.conf
 # Start the rsyslog service
 systemctl start rsyslog
 
-# Append the rule that defines ListenAddress only on eth0 (VLAN managed M1)
-echo "ListenAddress fe80::200:ff:fe00:c3%eth0" >> /etc/ssh/sshd_config
+# Append the rule that defines ListenAddress only on eth0
+echo "ListenAddress fe80::200:ff:fe00:110%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh
@@ -87,7 +87,7 @@ cp ta.key /etc/openvpn/
 # ================================
 cat > /etc/openvpn/server.conf <<EOF
 port 1194
-proto udp6       # usa UDP dual-stack
+proto udp6
 dev tun
 
 ca ca.crt
@@ -96,17 +96,15 @@ key server.key
 dh dh.pem
 tls-crypt ta.key
 
-# Dual-stack VPN
-server 10.8.0.0 255.255.255.0           # pool IPv4 (opzionale)
-server-ipv6 2001:db8:10:8::/64          # pool IPv6 VPN
-push "route-ipv6 2001:db8:10::/48"      # rete IPv6 del laboratorio
+# IPv6-only VPN subnet
+server-ipv6 2001:db8:10:8::/64
 
-ifconfig-pool-persist ipp.txt
+# Push IPv6 routes to clients (adapt to your lab prefix)
+push "route-ipv6 2001:db8:10::/48"
 
-# DNS + routing
-push "redirect-gateway def1 bypass-dhcp"
-push "dhcp-option DNS 1.1.1.1"
+# Optional: push IPv6 DNS (Cloudflare + Google)
 push "dhcp-option DNS 2606:4700:4700::1111"
+push "dhcp-option DNS 2001:4860:4860::8888"
 
 keepalive 10 120
 cipher AES-256-GCM
@@ -144,8 +142,7 @@ cat > "$CLIENT_OVPN" <<EOF
 client
 dev tun
 proto udp
-remote 172.17.0.136 1194    # IPv4 verso Tayga
-remote [2a04:0:0:2::4] 1194 # IPv6 diretto (se lo vuoi come fallback)
+remote 172.17.0.136 1194
 resolv-retry infinite
 nobind
 persist-key
@@ -155,7 +152,6 @@ tls-version-min 1.2
 remote-cert-tls server
 key-direction 1
 verb 3
-
 
 <ca>
 $(cat /etc/openvpn/ca.crt)

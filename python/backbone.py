@@ -18,7 +18,7 @@ lab.get_machine("dns64").create_file_from_path("machines_configurations/dns64/na
 
 # Router fw manages the networks I, E, W
 fw = lab.new_machine("fw", image="theb0ys/base:latest")
-lab.connect_machine_to_link("fw", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:01")
+lab.connect_machine_to_link("fw", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:e1")
 lab.connect_machine_to_link("fw", "I", machine_iface_number = 1, mac_address=generate_mac())
 lab.connect_machine_to_link("fw", "E", machine_iface_number = 2, mac_address=generate_mac())
 lab.connect_machine_to_link("fw", "W", machine_iface_number = 3, mac_address=generate_mac())
@@ -26,7 +26,7 @@ lab.connect_machine_to_link("fw", "W", machine_iface_number = 3, mac_address=gen
 
 # Router cisco manages the networks A, B and C
 cisco = lab.new_machine("cisco", image="theb0ys/base:latest")
-lab.connect_machine_to_link("cisco", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:02")
+lab.connect_machine_to_link("cisco", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:e2")
 lab.connect_machine_to_link("cisco", "I", machine_iface_number = 1, mac_address=generate_mac())
 lab.connect_machine_to_link("cisco", "A", machine_iface_number = 2)
 lab.connect_machine_to_link("cisco", "B", machine_iface_number = 3)
@@ -36,7 +36,7 @@ lab.get_machine("cisco").create_file_from_path("machines_configurations/cisco/ra
 
 # Router ciscos manages the networks S, F1, and F2
 ciscos = lab.new_machine("ciscos", image="theb0ys/base:latest")
-lab.connect_machine_to_link("ciscos", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:06")
+lab.connect_machine_to_link("ciscos", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:e3")
 lab.connect_machine_to_link("ciscos", "F1", machine_iface_number = 1, mac_address=generate_mac())
 lab.connect_machine_to_link("ciscos", "F2", machine_iface_number = 2, mac_address=generate_mac())
 lab.connect_machine_to_link("ciscos", "S", machine_iface_number = 3)
@@ -46,7 +46,7 @@ lab.get_machine("ciscos").create_file_from_path("machines_configurations/ciscos/
 
 # Router ciscod manages the networks D, F2, and F3
 ciscod = lab.new_machine("ciscod", image="theb0ys/base:latest")
-lab.connect_machine_to_link("ciscod", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:08")
+lab.connect_machine_to_link("ciscod", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:e4")
 lab.connect_machine_to_link("ciscod", "F1", machine_iface_number = 1, mac_address=generate_mac())
 lab.connect_machine_to_link("ciscod", "F3", machine_iface_number = 2, mac_address=generate_mac())
 lab.connect_machine_to_link("ciscod", "D", machine_iface_number = 3)
@@ -55,7 +55,7 @@ lab.get_machine("ciscod").create_file_from_path("machines_configurations/ciscod/
 
 # Router ciscoo manages the networks O, F3, and F1
 ciscoo = lab.new_machine("ciscoo", image="theb0ys/base:latest")
-lab.connect_machine_to_link("ciscoo", "M2", machine_iface_number = 0, mac_address="00:00:00:00:02:0a")
+lab.connect_machine_to_link("ciscoo", "M2", machine_iface_number = 0, mac_address="00:00:00:00:00:e5")
 lab.connect_machine_to_link("ciscoo", "F3", machine_iface_number = 1, mac_address=generate_mac())
 lab.connect_machine_to_link("ciscoo", "F2", machine_iface_number = 2, mac_address=generate_mac())
 lab.connect_machine_to_link("ciscoo", "O", machine_iface_number = 3)

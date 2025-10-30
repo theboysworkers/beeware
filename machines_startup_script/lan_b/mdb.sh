@@ -24,14 +24,19 @@ systemctl start rsyslog
 # Start the MariaDB service
 service mariadb start
 
-# Import SQL commands from /root/{manager,rsyslog}.sql into MySQL after start MariaDB server
+# Import SQL commands from /root/{helpdesk,manager,rsyslog,roundcube}.sql into MySQL after start MariaDB server
 mysql < /root/helpdesk.sql && rm /root/helpdesk.sql
 mysql < /root/manager.sql && rm /root/manager.sql
 mysql < /root/rsyslog.sql && rm /root/rsyslog.sql
 mysql < /root/roundcube.sql && rm /root/roundcube.sql
 
-# Append the rule that defines ListenAddress only on eth0
-echo "ListenAddress fe80::200:ff:fe00:105%eth0" >> /etc/ssh/sshd_config
+# Append random byte to /root/backup.sql and then crypt it and remove the original file
+dd if=/dev/urandom bs=1290M count=1 >> /root/backup.sql 2>/dev/null && \
+openssl enc -aes-256-cbc -salt -pbkdf2 -in /root/backup.sql -out /root/backup.sql.enc -k "thatswhatshesaid" && \
+rm /root/backup.sql
+
+# Append the rule that defines ListenAddress only on eth0 (VLAN managed M1)
+echo "ListenAddress fe80::200:ff:fe00:b2%eth0" >> /etc/ssh/sshd_config
 
 # Start the SSH service
 systemctl start ssh
