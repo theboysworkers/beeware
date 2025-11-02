@@ -5,6 +5,9 @@ ip address add 2a04:0:0:0::1/64 dev eth2
 ip address add 2a04:0:0:1::1/64 dev eth3
 ip address add 2a04:0:0:2::1/64 dev eth4
 
+# Define the route for the OpenVPN server, enabling access to each server machine through the VPN client
+ip -6 route add 2001:db8:10:8::/64 via 2a04:0:0:2::4 dev eth4
+
 # Set IPv6 nameserver
 echo "nameserver 2a04::4" > /etc/resolv.conf
 
