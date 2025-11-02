@@ -14,6 +14,7 @@ options {
         ::1;                   # localhost (IPv6 loopback)
         2a04:0::/56;           # clients in the 2a04:0::/56 subnet
         fd00:dead:beef::/48;   # clients in the local fd00:dead:beef::/48 network
+        2001:db8:10:8::/64;    # clients in the tunnel VPN
     };
 
     # Enable recursion (server will resolve queries for domains
