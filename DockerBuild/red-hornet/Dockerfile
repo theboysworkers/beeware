@@ -1,5 +1,7 @@
 FROM theb0ys/base:latest
 
+LABEL description="This is an image for pentesting."
+
 # Install necessary packages
 RUN apt update && \
     apt install -y \

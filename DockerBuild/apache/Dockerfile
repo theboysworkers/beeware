@@ -1,5 +1,7 @@
 FROM theb0ys/base:latest
 
+LABEL description="This is an image for a Web Server with Apache2, PHP, and MariaDB."
+
 # Install mariadb apache and php dependeces
 RUN apt update && \
     apt install -y --no-install-recommends \

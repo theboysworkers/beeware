@@ -1,5 +1,7 @@
 FROM theb0ys/base:latest
 
+LABEL description="This is an image for a IDS System with SURICATA."
+
 # Install Suricata, Apache and PHP dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \

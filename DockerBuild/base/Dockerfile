@@ -26,7 +26,9 @@ RUN	mkdir output && \
 
 # Build the final image
 FROM debian:12
-LABEL org.opencontainers.image.authors="Theboys Workers <theboys.workers@gmail.com>"
+LABEL maintainer="The Boys Workers"
+LABEL org.opencontainers.image.authors="The Boys Workers <theboys.workers@gmail.com>"
+LABEL description="This is the base image used for other images in The Boys series, containing minimal packages for proper functionality."
 
 ENV LANG="C.UTF-8"
 ENV LC_ALL="C.UTF-8"

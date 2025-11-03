@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-LABEL org.opencontainers.image.authors="Theboys Workers <theboys.workers@gmail.com>"
+LABEL description="This is an image for a ubuntu workstation."
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV VNC_PASSWORD=user
