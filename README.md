@@ -7,7 +7,7 @@
 </p>
 <br>
 
-_This project originated as a bachelor's thesis at Roma Tre University, aimed at creating a honeypot to emulate a corporate network. It was developed by two students, Michela Sciuranza and Lorenzo Ricciardi._
+_This project originated as a bachelor's thesis at Roma Tre University, aimed at creating a honeypot to emulate a corporate network. It was developed by two students, Michela Sicuranza and Lorenzo Ricciardi._
 
 ![Network Architecture](https://theboysworkers.github.io/beeware/network.drawio.png)
 
